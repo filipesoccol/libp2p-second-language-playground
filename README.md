@@ -1,6 +1,6 @@
-# IPFS PubSub + Vue app
+# LibP2P + PubSub + Vue app
 
-A minimal demonstration of how to use `js-ipfs + pub-sub` with `Vue`.
+A minimal demonstration of how to use `libp2p + pub-sub` with `Vue`. You can send messages to a public chat and also direct to specific peer id.
 
 ![screenshot of the js ipfs node id info](./src/assets/ipfs-vue-screenshot.png)
 
@@ -11,8 +11,8 @@ This project was bootstrapped with [Vue CLI](https://cli.vuejs.org/).
 First clone this repo, install dependencies in the project root and build the project.
 
 ```console
-$ git clone https://github.com/filipesoccol/ipfs-vue
-$ cd ipfs-vue
+$ git clone https://github.com/filipesoccol/libp2p-pubsub-vue
+$ cd libp2p-pubsub-vue
 $ npm install
 $ npm run build
 ```
@@ -50,7 +50,7 @@ $ npm run lint
 ### Signaling Servers are important
 
 Verify signaling servers in case two peers not seen each other.
-[Check here](https://github.com/filipesoccol/ipfs-vue/blob/b4ffe3bc4d7e1c09cf7cdbfd273c7b20f623eb1c/src/plugins/vue-ipfs.js#L15)
+[Check here](https://github.com/filipesoccol/libp2p-pubsub-vue/blob/c4f92ebefdb6750f5ec0ab883c8a738d76b23f9a/src/plugins/vue-libp2p.js#L17)
 
 ### Customize configuration
 
