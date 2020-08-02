@@ -2,6 +2,8 @@
 
 A minimal demonstration of how to use `libp2p + pub-sub` with `Vue`. You can send messages to a public chat and also direct to specific peer id.
 
+[Live Demo!](https://filipesoccol.github.io/libp2p-pubsub-vue//)
+
 ![screenshot of the js ipfs node id info](./src/assets/ipfs-vue-screenshot.png)
 
 This project was bootstrapped with [Vue CLI](https://cli.vuejs.org/).
