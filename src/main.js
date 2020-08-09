@@ -7,7 +7,6 @@ import Greetings from "./components/Greetings.vue";
 import Room from "./components/Room.vue";
 
 const router = new VueRouter({
-  mode: 'history',
   routes: [
     // dynamic segments start with a colon
     { path: '/', component: Greetings },
