@@ -4,8 +4,6 @@ const WebRTC = require('libp2p-webrtc-star')
 const Mplex = require('libp2p-mplex')
 const SECIO = require('libp2p-secio')
 const Gossipsub = require('libp2p-gossipsub')
-const Bootstrap = require('libp2p-bootstrap')
-// const pipe = require('it-pipe')
 
 const plugin = {
   install(Vue, opts = {}) {
@@ -33,9 +31,9 @@ const plugin = {
       })
 
       // Listen for new peers
-      node.on('peer:discovery', (peerId) => {
-        console.log(`Found peer ${peerId.toB58String()}`)
-      })
+      // node.on('peer:discovery', (peerId) => {
+      //   console.log(`Found peer ${peerId.toB58String()}`)
+      // })
 
       // Listen for new connections to peers
       node.connectionManager.on('peer:connect', (connection) => {
@@ -47,10 +45,24 @@ const plugin = {
       node.connectionManager.on('peer:disconnect', (connection) => {
         console.log(`Disconnected from ${connection.remotePeer.toB58String()}`)
       })
-    
-      await node.start()
-      return node
 
+      await node.start()
+
+      Vue.mixin({
+        data() {
+            return {
+              libp2p: node,
+              peerId: node.peerId.toB58String() 
+            }
+        }
+        // methods: {
+        //   test () {
+        //     console.log(this. peerId)
+        //   }
+        // }
+      })
+
+      return node
     }
   }
 }

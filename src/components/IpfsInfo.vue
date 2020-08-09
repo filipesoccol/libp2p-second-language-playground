@@ -1,6 +1,5 @@
 <template>
   <div class="ipfs-info">
-    <img class="ipfs-logo" alt="IPFS logo" src="../assets/logo.svg" />
     <form v-on:submit.prevent="sendMessage">
       <div id="messages" class="messages">
         <p v-for="(m,idx) in messages" :key="idx">{{ m }}</p>

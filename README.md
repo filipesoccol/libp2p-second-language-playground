@@ -57,3 +57,34 @@ Verify signaling servers in case two peers not seen each other.
 ### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### Protocool
+```
+
+// HOST - Ping
+{type: 'ping', message: 8}
+
+// HOST - Word Options Message
+{type: 'words', message: ['word1', 'word2', 'word3']}
+
+// HOST - Word Quantity
+{type: 'quantity', message: 8}
+
+// HOST - Lock Words / Draft started
+{type: 'lock', message: ''}
+
+// GUEST - Join Message
+{type: 'join', message: 'username'}
+
+// GUEST - Chosen words
+{type: 'chosen', message: ['word1', 'word2', 'word3']}
+
+// GUEST - Scored word
+{type: 'scored', message: 'word1'}
+
+// GUEST - UnScored word
+{type: 'unscored', message: index}
+
+
+```
