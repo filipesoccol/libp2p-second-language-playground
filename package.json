@@ -17,6 +17,7 @@
     "libp2p-webrtc-direct": "^0.7.0",
     "libp2p-webrtc-star": "^0.23.0",
     "libp2p-websockets": "^0.16.1",
+    "push-dir": "^0.4.1",
     "vue": "^3.0.0",
     "vue-router": "^4.0.11"
   },
