@@ -8,7 +8,9 @@ const routes = [
     { path: '/:room', name:'Room', component: Room },
 ]
 
+
 const router = createRouter({
+  base: process.env.NODE_ENV == 'development' ? '/' : '/libp2p-second-language-playground/',
   history: createWebHistory(),
   routes,
 });
