@@ -10,8 +10,7 @@ const routes = [
 
 
 const router = createRouter({
-  base: process.env.NODE_ENV == 'development' ? '/' : '/libp2p-second-language-playground/',
-  history: createWebHistory(),
+  history: createWebHistory(process.env.NODE_ENV == 'development' ? '/' : '/libp2p-second-language-playground/'),
   routes,
 });
 
