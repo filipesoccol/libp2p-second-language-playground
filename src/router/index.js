@@ -1,4 +1,4 @@
-import { createWebHistory, createRouter } from "vue-router";
+import { createWebHashHistory, createRouter } from "vue-router";
 // Routes
 import Greetings from "../components/Greetings.vue";
 import Room from "../components/Room.vue";
@@ -10,7 +10,7 @@ const routes = [
 
 
 const router = createRouter({
-  history: createWebHistory(process.env.NODE_ENV == 'development' ? '/' : '/libp2p-second-language-playground/'),
+  history: createWebHashHistory(process.env.NODE_ENV == 'development' ? '/' : '/libp2p-second-language-playground/'),
   routes,
 });
 
