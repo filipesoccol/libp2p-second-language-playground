@@ -6,14 +6,14 @@ const SECIO = require('libp2p-secio')
 const Gossipsub = require('libp2p-gossipsub')
 
 const plugin = {
-  install(Vue, opts = {}) {
+  install(app) {
 
-    Vue.prototype.$startLibp2p = async function () {
+    app.config.globalProperties.$startLibp2p = async function () {
       const node = await Libp2p.create({
         addresses: {
           listen: [
             '/dns4/wrtc-star1.par.dwebops.pub/tcp/443/wss/p2p-webrtc-star',
-            '/dns4/wrtc-star2.sjc.dwebops.pub/tcp/443/wss/p2p-webrtc-star'
+            '/dns4/wrtc-star2.sjc.dwebops.pub/tcp/443/wss/p2p-webrtc-star',
           ]
         },
         modules: {
@@ -38,7 +38,7 @@ const plugin = {
       // Listen for new connections to peers
       node.connectionManager.on('peer:connect', (connection) => {
         // console.log(`Connected to ${connection.remotePeer.toB58String()}`)
-        console.log(`Connected to ${connection.remotePeer}`)
+        console.log(`Connected to ${connection.remotePeer.toB58String()}`)
       })
 
       // Listen for peers disconnecting
@@ -48,7 +48,7 @@ const plugin = {
 
       await node.start()
 
-      Vue.mixin({
+      app.mixin({
         data() {
             return {
               libp2p: node,

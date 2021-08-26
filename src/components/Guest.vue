@@ -46,8 +46,11 @@ export default {
     mounted() {
         this.host = this.$route.params.room
         if (this.host === this.peerId) return;
+        var enc = new TextDecoder();
         this.libp2p.pubsub.subscribe(this.host, (msg) => {
-            this.receivedMessage(msg.from, msg.data.toString())
+            if (msg.from == this.peerId) return
+            console.log('RECEIVED', msg.data)
+            this.receivedMessage(msg.from, enc.decode(msg.data))
         })
     },
     methods: {
@@ -77,8 +80,8 @@ export default {
         },
         receivedMessage(peer, msg) {
             try {
+                console.log(peer, msg)
                 const {type, message} = JSON.parse(msg);
-                console.log(peer, type, message)
                 // If not the host ignore
                 // if (peer !== this.host) return;
                 switch (type) {

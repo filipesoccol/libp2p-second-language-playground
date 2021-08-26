@@ -45,8 +45,10 @@ export default {
     mounted() {
         this.host = this.$route.params.room
         if (this.host !== this.peerId) return;
+        var enc = new TextDecoder();
         this.libp2p.pubsub.subscribe(this.peerId, (msg) => {
-            this.receivedMessage(msg.from, msg.data.toString())
+            if (msg.from == this.peerId) return
+            this.receivedMessage(msg.from, enc.decode(msg.data))
         })
         setInterval( () => {
             this.sendPing()
@@ -83,9 +85,8 @@ export default {
         receivedMessage(peer, msg) {
             try {
                 const {type, message} = JSON.parse(msg);
-                console.log(peer, type, message)
                 switch (type) {
-                    case 'join':
+                    case 'join': {
                         const player = this.players.find(p => p.peer === peer || p.name == message)
                         if (!player) this.players.push({ peer: peer, name: message, words:[], scored:[] })
                         else {
@@ -93,13 +94,13 @@ export default {
                             this.sendPlayer(player)
                         }
                         this.sendWords()
-                    break
-                    case 'chosen':
+                    } break
+                    case 'chosen': {
                         this.players.find( p => p.peer === peer).words = message
-                    break
-                    case 'scored':
+                    } break
+                    case 'scored': {
                         this.players.find( p => p.peer === peer).scored = message
-                    break
+                    } break
                 }
             } catch (err) {
                 console.log(err)

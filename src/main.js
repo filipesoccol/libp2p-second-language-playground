@@ -1,24 +1,12 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
 import App from './App.vue'
-import VueRouter from 'vue-router'
 import VueLibp2p from './plugins/vue-libp2p';
-// Routes
-import Greetings from "./components/Greetings.vue";
-import Room from "./components/Room.vue";
+import router from './router'
 
-const router = new VueRouter({
-  routes: [
-    // dynamic segments start with a colon
-    { path: '/', component: Greetings },
-    { path: '/:room', component: Room },
-  ]
-})
+const educationApp = createApp(App)
+
+educationApp.use(router);
 // Load our IPFS plugin.
-Vue.use(VueRouter);
-Vue.use(VueLibp2p);
-Vue.config.productionTip = false;
+educationApp.use(VueLibp2p);
 
-new Vue({
-  router,
-  render: h => h(App)
-}).$mount('#app');
+educationApp.mount('#app');

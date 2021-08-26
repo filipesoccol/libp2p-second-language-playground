@@ -37,9 +37,6 @@ body {
 }
 
 #app {
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 80px auto;
   align-items: center;
   justify-content: center;
   height: 100vh;

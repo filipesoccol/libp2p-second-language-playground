@@ -1,10 +1,10 @@
-# LibP2P + PubSub + Vue app
+# LibP2P - Second Language Educational Playground
 
-A minimal demonstration of how to use `libp2p + pub-sub` with `Vue`. You can send messages to a public chat and also direct to specific peer id.
+Teachers create rooms for students join and play. Teachers could define parameters of matches and play with students monitoring scores in realtime.
 
-[Live Demo!](https://filipesoccol.github.io/libp2p-pubsub-vue//)
+[Live Demo!](https://filipesoccol.github.io/libp2p-second-language-playground/)
 
-![screenshot of the js ipfs node id info](./src/assets/ipfs-vue-screenshot.png)
+![screenshot of the playground](./src/assets/screenshot.png)
 
 This project was bootstrapped with [Vue CLI](https://cli.vuejs.org/).
 
@@ -13,8 +13,8 @@ This project was bootstrapped with [Vue CLI](https://cli.vuejs.org/).
 First clone this repo, install dependencies in the project root and build the project.
 
 ```console
-$ git clone https://github.com/filipesoccol/libp2p-pubsub-vue
-$ cd libp2p-pubsub-vue
+$ git clone https://github.com/filipesoccol/libp2p-second-language-playground
+$ cd libp2p-second-language-playground
 $ npm install
 $ npm run build
 ```
@@ -59,7 +59,7 @@ Verify signaling servers in case two peers not seen each other.
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
-### Protocool
+### Message Protocol
 ```
 
 // HOST - Ping
